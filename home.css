@@ -447,7 +447,52 @@
         background-position: 50% 50%;
         background-size: 40px;
         background-repeat: no-repeat;
-      }  
+      }
+      
+      /* add 1 */
+
+      .vc_custom_1591163506365 {
+        padding-bottom: 20px !important;
+      }
+  
+      .vc_custom_1725273320737 {
+        margin-bottom: 20px !important;
+      }
+  
+      .vc_custom_1605443493738 {
+        padding-top: 4px !important;
+      }
+  
+      .vc_custom_1725949623328 {
+        margin-top: 50px !important;
+        margin-bottom: 50px !important;
+      }
+  
+      .vc_custom_1589455513904 {
+        padding-right: 0px !important;
+      }
+  
+      .vc_custom_1589455509740 {
+        padding-left: 0px !important;
+      }
+  
+      .vc_custom_1605443065555 {
+        padding-bottom: 50px !important;
+      }
+  
+      .vc_custom_1605442995867 {
+        padding-bottom: 50px !important;
+      }
+  
+      .vc_custom_1694403593659 {
+        padding-bottom: 50px !important;
+      }
+
+
+      /* add 2 */
+      .wpb_animate_when_almost_visible {
+        opacity: 1;
+      }
  img.wp-smiley,
     img.emoji {
       display: inline !important;
