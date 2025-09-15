@@ -1382,13 +1382,7 @@
     var RocketPreloadLinksConfig = { "excludeUris": "\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index.php\/)?(.*)wp-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/", "usesTrailingSlash": "1", "imageExt": "jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php", "fileExt": "jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm", "siteUrl": "https:\/\/btibd.com", "onHoverDelay": "100", "rateThrottle": "3" };
     /* ]]> */
   </script>
-  <script type="text/javascript" id="rocket-preload-links-js-after">
-    /* <![CDATA[ */
-    (function () {
-      "use strict"; var r = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (e) { return typeof e } : function (e) { return e && "function" == typeof Symbol && e.constructor === Symbol && e !== Symbol.prototype ? "symbol" : typeof e }, e = function () { function i(e, t) { for (var n = 0; n < t.length; n++) { var i = t[n]; i.enumerable = i.enumerable || !1, i.configurable = !0, "value" in i && (i.writable = !0), Object.defineProperty(e, i.key, i) } } return function (e, t, n) { return t && i(e.prototype, t), n && i(e, n), e } }(); function i(e, t) { if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function") } var t = function () { function n(e, t) { i(this, n), this.browser = e, this.config = t, this.options = this.browser.options, this.prefetched = new Set, this.eventTime = null, this.threshold = 1111, this.numOnHover = 0 } return e(n, [{ key: "init", value: function () { !this.browser.supportsLinkPrefetch() || this.browser.isDataSaverModeOn() || this.browser.isSlowConnection() || (this.regex = { excludeUris: RegExp(this.config.excludeUris, "i"), images: RegExp(".(" + this.config.imageExt + ")$", "i"), fileExt: RegExp(".(" + this.config.fileExt + ")$", "i") }, this._initListeners(this)) } }, { key: "_initListeners", value: function (e) { -1 < this.config.onHoverDelay && document.addEventListener("mouseover", e.listener.bind(e), e.listenerOptions), document.addEventListener("mousedown", e.listener.bind(e), e.listenerOptions), document.addEventListener("touchstart", e.listener.bind(e), e.listenerOptions) } }, { key: "listener", value: function (e) { var t = e.target.closest("a"), n = this._prepareUrl(t); if (null !== n) switch (e.type) { case "mousedown": case "touchstart": this._addPrefetchLink(n); break; case "mouseover": this._earlyPrefetch(t, n, "mouseout") } } }, { key: "_earlyPrefetch", value: function (t, e, n) { var i = this, r = setTimeout(function () { if (r = null, 0 === i.numOnHover) setTimeout(function () { return i.numOnHover = 0 }, 1e3); else if (i.numOnHover > i.config.rateThrottle) return; i.numOnHover++, i._addPrefetchLink(e) }, this.config.onHoverDelay); t.addEventListener(n, function e() { t.removeEventListener(n, e, { passive: !0 }), null !== r && (clearTimeout(r), r = null) }, { passive: !0 }) } }, { key: "_addPrefetchLink", value: function (i) { return this.prefetched.add(i.href), new Promise(function (e, t) { var n = document.createElement("link"); n.rel = "prefetch", n.href = i.href, n.onload = e, n.onerror = t, document.head.appendChild(n) }).catch(function () { }) } }, { key: "_prepareUrl", value: function (e) { if (null === e || "object" !== (void 0 === e ? "undefined" : r(e)) || !1 in e || -1 === ["http:", "https:"].indexOf(e.protocol)) return null; var t = e.href.substring(0, this.config.siteUrl.length), n = this._getPathname(e.href, t), i = { original: e.href, protocol: e.protocol, origin: t, pathname: n, href: t + n }; return this._isLinkOk(i) ? i : null } }, { key: "_getPathname", value: function (e, t) { var n = t ? e.substring(this.config.siteUrl.length) : e; return n.startsWith("/") || (n = "/" + n), this._shouldAddTrailingSlash(n) ? n + "/" : n } }, { key: "_shouldAddTrailingSlash", value: function (e) { return this.config.usesTrailingSlash && !e.endsWith("/") && !this.regex.fileExt.test(e) } }, { key: "_isLinkOk", value: function (e) { return null !== e && "object" === (void 0 === e ? "undefined" : r(e)) && (!this.prefetched.has(e.href) && e.origin === this.config.siteUrl && -1 === e.href.indexOf("?") && -1 === e.href.indexOf("#") && !this.regex.excludeUris.test(e.href) && !this.regex.images.test(e.href)) } }], [{ key: "run", value: function () { "undefined" != typeof RocketPreloadLinksConfig && new n(new RocketBrowserCompatibilityChecker({ capture: !0, passive: !0 }), RocketPreloadLinksConfig).init() } }]), n }(); t.run();
-    }());
-    /* ]]> */
-  </script>
+ 
   <script type="text/javascript" src="https://btibd.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3"
     id="jquery-ui-core-js"></script>
   <script type="text/javascript" src="https://btibd.com/wp-includes/js/jquery/ui/accordion.min.js?ver=1.13.3"
@@ -1423,9 +1417,7 @@
     id="flexslider-js"></script>
   <script type="text/javascript" id="mediaelement-core-js-before">
     /* <![CDATA[ */
-    var mejsL10n = { "language": "en", "strings": { "mejs.download-file": "Download File", "mejs.install-flash": "You are using a browser that does not have Flash player enabled or installed. Please turn on your Flash player plugin or download the latest version from https:\/\/get.adobe.com\/flashplayer\/", "mejs.fullscreen": "Fullscreen", "mejs.play": "Play", "mejs.pause": "Pause", "mejs.time-slider": "Time Slider", "mejs.time-help-text": "Use Left\/Right Arrow keys to advance one second, Up\/Down arrows to advance ten seconds.", "mejs.live-broadcast": "Live Broadcast", "mejs.volume-help-text": "Use Up\/Down Arrow keys to increase or decrease volume.", "mejs.unmute": "Unmute", "mejs.mute": "Mute", "mejs.volume-slider": "Volume Slider", "mejs.video-player": "Video Player", "mejs.audio-player": "Audio Player", "mejs.captions-subtitles": "Captions\/Subtitles", "mejs.captions-chapters": "Chapters", "mejs.none": "None", "mejs.afrikaans": "Afrikaans", "mejs.albanian": "Albanian", "mejs.arabic": "Arabic", "mejs.belarusian": "Belarusian", "mejs.bulgarian": "Bulgarian", "mejs.catalan": "Catalan", "mejs.chinese": "Chinese", "mejs.chinese-simplified": "Chinese (Simplified)", "mejs.chinese-traditional": "Chinese (Traditional)", "mejs.croatian": "Croatian", "mejs.czech": "Czech", "mejs.danish": "Danish", "mejs.dutch": "Dutch", "mejs.english": "English", "mejs.estonian": "Estonian", "mejs.filipino": "Filipino", "mejs.finnish": "Finnish", "mejs.french": "French", "mejs.galician": "Galician", "mejs.german": "German", "mejs.greek": "Greek", "mejs.haitian-creole": "Haitian Creole", "mejs.hebrew": "Hebrew", "mejs.hindi": "Hindi", "mejs.hungarian": "Hungarian", "mejs.icelandic": "Icelandic", "mejs.indonesian": "Indonesian", "mejs.irish": "Irish", "mejs.italian": "Italian", "mejs.japanese": "Japanese", "mejs.korean": "Korean", "mejs.latvian": "Latvian", "mejs.lithuanian": "Lithuanian", "mejs.macedonian": "Macedonian", "mejs.malay": "Malay", "mejs.maltese": "Maltese", "mejs.norwegian": "Norwegian", "mejs.persian": "Persian", "mejs.polish": "Polish", "mejs.portuguese": "Portuguese", "mejs.romanian": "Romanian", "mejs.russian": "Russian", "mejs.serbian": "Serbian", "mejs.slovak": "Slovak", "mejs.slovenian": "Slovenian", "mejs.spanish": "Spanish", "mejs.swahili": "Swahili", "mejs.swedish": "Swedish", "mejs.tagalog": "Tagalog", "mejs.thai": "Thai", "mejs.turkish": "Turkish", "mejs.ukrainian": "Ukrainian", "mejs.vietnamese": "Vietnamese", "mejs.welsh": "Welsh", "mejs.yiddish": "Yiddish" } };
-    /* ]]> */
-  </script>
+   
   <script type="text/javascript"
     src="https://btibd.com/wp-includes/js/mediaelement/mediaelement-and-player.min.js?ver=4.2.17"
     id="mediaelement-core-js"></script>
@@ -1433,9 +1425,9 @@
     src="https://btibd.com/wp-includes/js/mediaelement/mediaelement-migrate.min.js?ver=6.8.2"
     id="mediaelement-migrate-js"></script>
   <script type="text/javascript" id="mediaelement-js-extra">
-    /* <![CDATA[ */
+
     var _wpmejsSettings = { "pluginPath": "\/wp-includes\/js\/mediaelement\/", "classPrefix": "mejs-", "stretching": "responsive", "audioShortcodeLibrary": "mediaelement", "videoShortcodeLibrary": "mediaelement" };
-    /* ]]> */
+    </script>
   </script>
   <script type="text/javascript" src="https://btibd.com/wp-includes/js/mediaelement/wp-mediaelement.min.js?ver=6.8.2"
     id="wp-mediaelement-js"></script>
@@ -1533,11 +1525,7 @@
   <script type="text/javascript"
     src="https://btibd.com/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js?ver=7.3"
     id="wpb_composer_front_js-js"></script>
-  <script type="text/javascript" id="wd-asl-ajaxsearchlite-js-before">
-    /* <![CDATA[ */
-    window.ASL = typeof window.ASL !== 'undefined' ? window.ASL : {}; window.ASL.wp_rocket_exception = "DOMContentLoaded"; window.ASL.ajaxurl = "https:\/\/btibd.com\/wp-admin\/admin-ajax.php"; window.ASL.backend_ajaxurl = "https:\/\/btibd.com\/wp-admin\/admin-ajax.php"; window.ASL.asl_url = "https:\/\/btibd.com\/wp-content\/plugins\/ajax-search-lite\/"; window.ASL.detect_ajax = 1; window.ASL.media_query = 4777; window.ASL.version = 4777; window.ASL.pageHTML = ""; window.ASL.additional_scripts = []; window.ASL.script_async_load = false; window.ASL.init_only_in_viewport = true; window.ASL.font_url = "https:\/\/btibd.com\/wp-content\/plugins\/ajax-search-lite\/css\/fonts\/icons2.woff2"; window.ASL.highlight = { "enabled": false, "data": [] }; window.ASL.analytics = { "method": 0, "tracking_id": "", "string": "?ajax_search={asl_term}", "event": { "focus": { "active": true, "action": "focus", "category": "ASL", "label": "Input focus", "value": "1" }, "search_start": { "active": false, "action": "search_start", "category": "ASL", "label": "Phrase: {phrase}", "value": "1" }, "search_end": { "active": true, "action": "search_end", "category": "ASL", "label": "{phrase} | {results_count}", "value": "1" }, "magnifier": { "active": true, "action": "magnifier", "category": "ASL", "label": "Magnifier clicked", "value": "1" }, "return": { "active": true, "action": "return", "category": "ASL", "label": "Return button pressed", "value": "1" }, "facet_change": { "active": false, "action": "facet_change", "category": "ASL", "label": "{option_label} | {option_value}", "value": "1" }, "result_click": { "active": true, "action": "result_click", "category": "ASL", "label": "{result_title} | {result_url}", "value": "1" } } };
-    /* ]]> */
-  </script>
+  
   <script type="text/javascript"
     src="https://btibd.com/wp-content/plugins/ajax-search-lite/js/min/plugin/merged/asl.min.js?ver=4777"
     id="wd-asl-ajaxsearchlite-js"></script>
@@ -1575,12 +1563,17 @@
   <script type="text/javascript"
     src="https://btibd.com/wp-content/plugins/wpforms/assets/js/frontend/fields/address.min.js?ver=1.9.7.3"
     id="wpforms-address-field-js"></script>
-  <script src="home.js"></script>
-  <script src="customOfHome.js"></script>
-  <script type="application/ld+json" src="schema.json"></script>
+  <script src="Home/home.js"></script>
+  <script src="Home/customOfHome.js"></script>
+  <script type="application/ld+json" src="Home/schema.json"></script>
+  <script src="Home/asl-config.js"></script>
+<script src="Home/mejs-l10n.js"></script>
+
+
+
 
 
 </body>
 
 </html>
-<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1757934330 -->
+// <!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1757934330 -->
